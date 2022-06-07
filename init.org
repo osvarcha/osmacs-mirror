@@ -1,3 +1,4 @@
+#+export_file_name: README
 * Osmacs
 * Sobre este repositorio
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.

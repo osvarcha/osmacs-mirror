@@ -147,7 +147,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; (require 'init-webdev)
 
 ;; Office
-;; (require 'init-org)
+(require 'init-org)
 
 ;; (require 'init-pdf)
 
