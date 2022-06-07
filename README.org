@@ -2,4 +2,9 @@
 * Sobre este repositorio
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
 * StartUp
-** 
+** Lexical Binding
+Uso lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
+#+begin_quote
+Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
+#+end_quote
+#+include: "init.el" src emacs-lisp :lines "1-2"
