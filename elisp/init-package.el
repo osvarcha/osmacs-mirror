@@ -25,23 +25,27 @@
 ;; Install use-package if not installed
 
 ;; Configure use-package to use straight.el by default
-(use-package straight
-             :custom (straight-use-package-by-default t))
+;; (use-package straight
+;;              :custom (straight-use-package-by-default t))
 
-(eval-and-compile
-  (setq use-package-always-ensure t)
-  (setq use-package-expand-minimally t)
-  (setq use-package-compute-statistics t)
-  (setq use-package-enable-imenu-support t))
+;; (eval-and-compile
+;;   (setq use-package-always-ensure t)
+;;   (setq use-package-expand-minimally t)
+;;   (setq use-package-compute-statistics t)
+;;   (setq use-package-enable-imenu-support t))
 
-(eval-when-compile
-  (require 'use-package)
-  (require 'bind-key))
+;; (eval-when-compile
+;;   (require 'use-package)
+;;   (require 'bind-key))
+(setq straight-use-package-by-default t)
+(setq use-package-always-defer t)
 ;; -ConfigureUsePackage
+
+
 
 ;; Diminish
 (use-package diminish)
-;; Diminish
+;; -Diminish
 
 (provide 'init-package)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -10,7 +10,7 @@
 
 ;; DefiBindings
 (global-set-key (kbd "C-z") nil)
-;; -DefiBinding
+;; -DefiBindings
 
 ;; UTF8Coding
 (unless *sys/win32*
