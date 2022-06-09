@@ -62,120 +62,20 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-func)
 
-;; (require 'init-search)
-
-;; (require 'init-crux)
-
-;; (require 'init-avy)
-
-;; (require 'init-winner)
-
-;; (require 'init-which-key)
-
-;; (require 'init-popup-kill-ring)
-
-;; (require 'init-undo-tree)
-
-;; (require 'init-discover-my-major)
-
-;; (require 'init-ace-window)
-
-;; (require 'init-shell)
-
-;; (require 'init-dired)
-
-;; (require 'init-buffer)
-
 ;; UI Enhancements
-;; (require 'init-ui-config)
-
-;; (require 'init-theme)
-
-;; (require 'init-dashboard)
-
-;; (require 'init-fonts)
-
-;; (require 'init-scroll)
 
 ;; General Programming
-;; (require 'init-magit)
-
-;; (require 'init-projectile)
-
-;; (require 'init-yasnippet)
-
-;; (require 'init-syntax)
-
-;; (require 'init-dumb-jump)
-
-;; (require 'init-parens)
-
-;; (require 'init-indent)
-
-;; (require 'init-quickrun)
-
-;; (require 'init-format)
-
-;; (require 'init-comment)
-
-;; (require 'init-edit)
-
-;; (require 'init-header)
-
-;; (require 'init-ein)
-
-;; (require 'init-lsp)
-
-;; (require 'init-company)
 
 ;; Programming
-;; (require 'init-java)
-
-;; (require 'init-cc)
-
-;; (require 'init-python)
-
-;; (require 'init-haskell)
-
-;; (require 'init-ess)
-
-;; (require 'init-latex)
-
-;; (require 'init-buildsystem)
 
 ;; Web Development
-;; (require 'init-webdev)
 
 ;; Office
 (require 'init-org)
 
-;; (require 'init-pdf)
-
 ;; Internet
-;; (require 'init-eaf)
-
-;; (require 'init-erc)
-
-;; (require 'init-mu4e)
-
-;; (require 'init-tramp)
-
-;; (require 'init-leetcode)
-
-;; (require 'init-debbugs)
-
-;; (require 'init-hackernews)
-
-;; (require 'init-eww)
 
 ;; Miscellaneous
-;; (require 'init-chinese)
-
-;; (require 'init-games)
-
-;; (require 'init-epaint)
-
-;; (require 'init-zone)
 
 ;; InitPrivate
 ;; Load init-private.el if it exists
