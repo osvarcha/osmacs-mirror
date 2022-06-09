@@ -9,7 +9,7 @@
 ;; -SudoEditPac
 
 ;; DefiBindings
-(global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "C-z") nil) ; Suspend-frame
 ;; -DefiBindings
 
 ;; UTF8Coding
