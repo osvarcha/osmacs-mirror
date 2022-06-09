@@ -4,3 +4,4 @@ auto-save-list/*
 straight/*
 places
 recentf
+custom-set-variables.el
