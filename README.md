@@ -1,36 +1,39 @@
-- [Osmacs](#orgfcd78d2)
-- [Sobre este repositorio](#org5bed147)
-- [StartUp](#org204770d)
-  - [Lexical Binding](#org13f4c64)
-- [Package Manager](#orgd9b053c)
-  - [Use-package](#orgb9a59c4)
-    - [Diminish](#org09daa93)
-- [Global Functionalities](#org3866bfa)
-  - [USer Information](#org825ad8c)
-  - [UTF8 for windows](#org21aeb98)
-  - [Bindings](#orgabc5b47)
-- [Package Basics](#orga2b7814)
+- [Osmacs](#org1a8e6e8)
+- [Sobre este repositorio](#org92a67e2)
+- [StartUp](#org5d9b73c)
+  - [Lexical Binding](#orga7e2fa6)
+- [Package Manager](#orgbcb87dc)
+  - [Use-package](#orgc5b86a5)
+    - [Diminish](#orgbf7a130)
+- [Global Functionalities](#org666ce23)
+  - [USer Information](#orgc434bd5)
+  - [UTF8 for windows](#org9f18735)
+  - [Bindings](#org4e1c1f4)
+- [Package Basics](#org1daabbd)
+  - [Search](#org7d4c171)
+    - [Avy](#org3a50bba)
+    - [CtrlF](#org7d003b8)
 
 
 
-<a id="orgfcd78d2"></a>
+<a id="org1a8e6e8"></a>
 
 # Osmacs
 
 
-<a id="org5bed147"></a>
+<a id="org92a67e2"></a>
 
 # Sobre este repositorio
 
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
 
 
-<a id="org204770d"></a>
+<a id="org5d9b73c"></a>
 
 # StartUp
 
 
-<a id="org13f4c64"></a>
+<a id="orga7e2fa6"></a>
 
 ## Lexical Binding
 
@@ -43,7 +46,7 @@ Uso lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="orgd9b053c"></a>
+<a id="orgbcb87dc"></a>
 
 # Package Manager
 
@@ -71,7 +74,7 @@ Para añadirlo Straight.el
 ```
 
 
-<a id="orgb9a59c4"></a>
+<a id="orgc5b86a5"></a>
 
 ## Use-package
 
@@ -100,7 +103,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org09daa93"></a>
+<a id="orgbf7a130"></a>
 
 ### Diminish
 
@@ -111,12 +114,12 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org3866bfa"></a>
+<a id="org666ce23"></a>
 
 # Global Functionalities
 
 
-<a id="org825ad8c"></a>
+<a id="orgc434bd5"></a>
 
 ## USer Information
 
@@ -129,7 +132,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org21aeb98"></a>
+<a id="org9f18735"></a>
 
 ## UTF8 for windows
 
@@ -148,15 +151,53 @@ Instalar y configurar use-package
 ```
 
 
-<a id="orgabc5b47"></a>
+<a id="org4e1c1f4"></a>
 
 ## Bindings
 
 ```emacs-lisp
-(global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "C-z") nil) ; Suspend-frame
 ```
 
 
-<a id="orga2b7814"></a>
+<a id="org1daabbd"></a>
 
 # Package Basics
+
+
+<a id="org7d4c171"></a>
+
+## Search
+
+
+<a id="org3a50bba"></a>
+
+### Avy
+
+[Avy](https://github.com/abo-abo/avy), una de las mejores herramientas para moverte en el texto.
+
+```emacs-lisp
+(use-package avy
+  :defer t
+  :bind
+  (("C-z C-c" . avy-goto-char-timer)
+   ("C-z C-l" . avy-goto-line))
+  :custom
+  (avy-timeout-seconds 0.3)
+  (avy-style 'pre)
+  :custom-face
+  (avy-lead-face ((t (:background "#51afef" :foreground "#870000" :weight bold)))));
+```
+
+
+<a id="org7d003b8"></a>
+
+### CtrlF
+
+El paquete ****[ctrlf](https://github.com/radian-software/ctrlf)**** proporciona un reemplazo para 'buscar' que es más similar a las interfaces de búsqueda de texto probadas y verdaderas en la web navegadores y otros programas (piense en lo que sucede cuando escribe ctrl + F).
+
+```emacs-lisp
+(use-package avy
+  :defer t
+  :bind
+```

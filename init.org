@@ -30,3 +30,10 @@ Instalar y configurar use-package
 ** Bindings
 #+include: "elisp/init-global-config.el" src emacs-lisp :range-begin "DefineBindings" :rage-end "-DefiBindings" :lines "12-13"
 * Package Basics
+** Search
+*** Avy
+[[https://github.com/abo-abo/avy][Avy]], una de las mejores herramientas para moverte en el texto.
+#+include: "elisp/init-search.el" src emacs-lisp :range-begin "Avy" :range-end "-Avy" :lines "7-17"
+*** CtrlF
+El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona un reemplazo para 'buscar' que es más similar a las interfaces de búsqueda de texto probadas y verdaderas en la web navegadores y otros programas (piense en lo que sucede cuando escribe ctrl + F).
+#+include: "elisp/init-search.el" src emacs-lisp :range-begin "CtrlF" :range-end "-CtrlF" :lines "7-10"

@@ -62,6 +62,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-func)
 
+(require 'init-search)
+
 ;; UI Enhancements
 
 ;; General Programming
