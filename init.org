@@ -37,3 +37,8 @@ Instalar y configurar use-package
 *** CtrlF
 El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona un reemplazo para 'buscar' que es más similar a las interfaces de búsqueda de texto probadas y verdaderas en la web navegadores y otros programas (piense en lo que sucede cuando escribe ctrl + F).
 #+include: "elisp/init-search.el" src emacs-lisp :range-begin "CtrlF" :range-end "-CtrlF" :lines "7-10"
+*** ColorRG
+[[https://github.com/manateelazycat/color-rg][Color rg]], una herramienta de búsqueda y refactorización basada en ripgrep que se utiliza para buscar texto.
+
+*Prerequisite*: [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]]
+#+include: "elisp/init-search.el" Src emacs-lisp :range-begin "ColorRg" :range-end "-ColorRG" :lines "26-32"

@@ -1,39 +1,40 @@
-- [Osmacs](#org1a8e6e8)
-- [Sobre este repositorio](#org92a67e2)
-- [StartUp](#org5d9b73c)
-  - [Lexical Binding](#orga7e2fa6)
-- [Package Manager](#orgbcb87dc)
-  - [Use-package](#orgc5b86a5)
-    - [Diminish](#orgbf7a130)
-- [Global Functionalities](#org666ce23)
-  - [USer Information](#orgc434bd5)
-  - [UTF8 for windows](#org9f18735)
-  - [Bindings](#org4e1c1f4)
-- [Package Basics](#org1daabbd)
-  - [Search](#org7d4c171)
-    - [Avy](#org3a50bba)
-    - [CtrlF](#org7d003b8)
+- [Osmacs](#org99c75a1)
+- [Sobre este repositorio](#org3a9d42d)
+- [StartUp](#orgabda902)
+  - [Lexical Binding](#org7132da6)
+- [Package Manager](#org47b717a)
+  - [Use-package](#orgf78a6d4)
+    - [Diminish](#orgb655d0b)
+- [Global Functionalities](#orgf2f5c12)
+  - [USer Information](#org1002eab)
+  - [UTF8 for windows](#org4b1544d)
+  - [Bindings](#org8bf8e91)
+- [Package Basics](#orgd92aabf)
+  - [Search](#org567c5e6)
+    - [Avy](#org61394d4)
+    - [CtrlF](#org4252a16)
+    - [ColorRG](#orgb5a3a6a)
 
 
 
-<a id="org1a8e6e8"></a>
+<a id="org99c75a1"></a>
 
 # Osmacs
 
 
-<a id="org92a67e2"></a>
+<a id="org3a9d42d"></a>
 
 # Sobre este repositorio
 
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
 
 
-<a id="org5d9b73c"></a>
+<a id="orgabda902"></a>
 
 # StartUp
 
 
-<a id="orga7e2fa6"></a>
+<a id="org7132da6"></a>
 
 ## Lexical Binding
 
@@ -46,7 +47,7 @@ Uso lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="orgbcb87dc"></a>
+<a id="org47b717a"></a>
 
 # Package Manager
 
@@ -74,7 +75,7 @@ Para añadirlo Straight.el
 ```
 
 
-<a id="orgc5b86a5"></a>
+<a id="orgf78a6d4"></a>
 
 ## Use-package
 
@@ -103,7 +104,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="orgbf7a130"></a>
+<a id="orgb655d0b"></a>
 
 ### Diminish
 
@@ -114,12 +115,12 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org666ce23"></a>
+<a id="orgf2f5c12"></a>
 
 # Global Functionalities
 
 
-<a id="orgc434bd5"></a>
+<a id="org1002eab"></a>
 
 ## USer Information
 
@@ -132,7 +133,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org9f18735"></a>
+<a id="org4b1544d"></a>
 
 ## UTF8 for windows
 
@@ -151,7 +152,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org4e1c1f4"></a>
+<a id="org8bf8e91"></a>
 
 ## Bindings
 
@@ -160,17 +161,17 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org1daabbd"></a>
+<a id="orgd92aabf"></a>
 
 # Package Basics
 
 
-<a id="org7d4c171"></a>
+<a id="org567c5e6"></a>
 
 ## Search
 
 
-<a id="org3a50bba"></a>
+<a id="org61394d4"></a>
 
 ### Avy
 
@@ -190,7 +191,7 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org7d003b8"></a>
+<a id="org4252a16"></a>
 
 ### CtrlF
 
@@ -200,4 +201,22 @@ El paquete ****[ctrlf](https://github.com/radian-software/ctrlf)**** proporciona
 (use-package avy
   :defer t
   :bind
+```
+
+
+<a id="orgb5a3a6a"></a>
+
+### ColorRG
+
+[Color rg](https://github.com/manateelazycat/color-rg), una herramienta de búsqueda y refactorización basada en ripgrep que se utiliza para buscar texto.
+
+**Prerequisite**: [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+
+```emacs-lisp
+(use-package color-rg
+  :straight (color-rg :type git
+		      :host github
+		      :repo "manateelazycat/color-rg")
+  :if (executable-find "rg")
+  :bind ("C-z C-s" . color-rg-search-input))
 ```
