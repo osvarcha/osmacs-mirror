@@ -5,7 +5,7 @@
 
 ;; Avy
 (use-package avy
-  :defer t
+  :blackout t
   :bind
   (("C-z C-c" . avy-goto-char-timer)
    ("C-z C-l" . avy-goto-line))
@@ -24,6 +24,7 @@
 
 ;; ColorRG
 (use-package color-rg
+  :blackout t
   :straight (color-rg :type git
                       :host github
                       :repo "manateelazycat/color-rg")

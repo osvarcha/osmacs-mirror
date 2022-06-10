@@ -1,6 +1,11 @@
-#+export_file_name: README
-* Osmacs
+#+TITLE: Osmacs
+#+EXPORT_FILE_NAME: README
+#+AUTHOR: Oscar J.F. (Osvarcha) Vargas Chavez
+#+EMAIL: osvarcha@hotmail.com
+#+OPTIONS: toc:nil
 
+* Osmacs
+* Table of Contens
 * Sobre este repositorio
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
 * StartUp
@@ -17,10 +22,10 @@ Para añadirlo Straight.el
 #+include: "elisp/init-package.el" src emacs-lisp :range-begin "BootstrapStraight" :range-end "-BootstrapStraight" :lines "4-20"
 ** Use-package
 Instalar y configurar use-package
-#+include: "elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage" :lines "23-42"
-*** Diminish
-[[https://github.com/emacsmirror/diminish][Diminish]], una característica que elimina ciertos modos menores de la línea de modo.
-#+include: "elisp/init-package.el" src emacs-lisp :range-begin "Diminish" :range-end "-Diminish" :lines "47-48"
+#+include: "elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage" :lines "23-41"
+*** Blackout
+[[https://github.com/radian-software/blackout][Blackout]], una característica que elimina ciertos modos menores de la línea de modo.
+#+include: "elisp/init-package.el" src emacs-lisp :range-begin "Blackout" :range-end "-Blackout" :lines "44-46"
 * Global Functionalities
 ** USer Information
 *Prerequisite*:Informacion basica del usuario
@@ -41,4 +46,9 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 [[https://github.com/manateelazycat/color-rg][Color rg]], una herramienta de búsqueda y refactorización basada en ripgrep que se utiliza para buscar texto.
 
 *Prerequisite*: [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]]
-#+include: "elisp/init-search.el" Src emacs-lisp :range-begin "ColorRg" :range-end "-ColorRG" :lines "26-32"
+#+include: "elisp/init-search.el" src emacs-lisp :range-begin "ColorRg" :range-end "-ColorRG" :lines "26-32"
+* General Programming
+** Editing
+*** Iedit
+[[https://github.com/victorhge/iedit][Iedit]],un modo menor que permite editar múltiples regiones simultáneamente en un búfer o una región.
+#+include: "elisp/init-edit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "7-10"

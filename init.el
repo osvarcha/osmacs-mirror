@@ -64,9 +64,12 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-search)
 
+(require 'init-vundo)
+
 ;; UI Enhancements
 
 ;; General Programming
+(require 'init-edit)
 
 ;; Programming
 

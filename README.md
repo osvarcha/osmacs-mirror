@@ -1,40 +1,16 @@
-- [Osmacs](#org99c75a1)
-- [Sobre este repositorio](#org3a9d42d)
-- [StartUp](#orgabda902)
-  - [Lexical Binding](#org7132da6)
-- [Package Manager](#org47b717a)
-  - [Use-package](#orgf78a6d4)
-    - [Diminish](#orgb655d0b)
-- [Global Functionalities](#orgf2f5c12)
-  - [USer Information](#org1002eab)
-  - [UTF8 for windows](#org4b1544d)
-  - [Bindings](#org8bf8e91)
-- [Package Basics](#orgd92aabf)
-  - [Search](#org567c5e6)
-    - [Avy](#org61394d4)
-    - [CtrlF](#org4252a16)
-    - [ColorRG](#orgb5a3a6a)
-
-
-
-<a id="org99c75a1"></a>
-
 # Osmacs
 
 
-<a id="org3a9d42d"></a>
+# Table of Contens
+
 
 # Sobre este repositorio
 
 Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
 
 
-<a id="orgabda902"></a>
-
 # StartUp
 
-
-<a id="org7132da6"></a>
 
 ## Lexical Binding
 
@@ -46,8 +22,6 @@ Uso lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ;;; init.el --- -*- lexical-binding: t -*-
 ```
 
-
-<a id="org47b717a"></a>
 
 # Package Manager
 
@@ -75,8 +49,6 @@ Para añadirlo Straight.el
 ```
 
 
-<a id="orgf78a6d4"></a>
-
 ## Use-package
 
 Instalar y configurar use-package
@@ -87,8 +59,8 @@ Instalar y configurar use-package
 ;; Install use-package if not installed
 
 ;; Configure use-package to use straight.el by default
-;; (use-package straight
-;;              :custom (straight-use-package-by-default t))
+(use-package straight
+	     :custom (straight-use-package-by-default t))
 
 ;; (eval-and-compile
 ;;   (setq use-package-always-ensure t)
@@ -99,28 +71,22 @@ Instalar y configurar use-package
 ;; (eval-when-compile
 ;;   (require 'use-package)
 ;;   (require 'bind-key))
-(setq straight-use-package-by-default t)
 (setq use-package-always-defer t)
 ```
 
 
-<a id="orgb655d0b"></a>
+### Blackout
 
-### Diminish
-
-[Diminish](https://github.com/emacsmirror/diminish), una característica que elimina ciertos modos menores de la línea de modo.
+[Blackout](https://github.com/radian-software/blackout), una característica que elimina ciertos modos menores de la línea de modo.
 
 ```emacs-lisp
-(use-package diminish)
+(use-package blackout
+  :demand t)
 ```
 
 
-<a id="orgf2f5c12"></a>
-
 # Global Functionalities
 
-
-<a id="org1002eab"></a>
 
 ## USer Information
 
@@ -132,8 +98,6 @@ Instalar y configurar use-package
  user-mail-address "osvarcha@hotmail.com")
 ```
 
-
-<a id="org4b1544d"></a>
 
 ## UTF8 for windows
 
@@ -152,8 +116,6 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org8bf8e91"></a>
-
 ## Bindings
 
 ```emacs-lisp
@@ -161,17 +123,11 @@ Instalar y configurar use-package
 ```
 
 
-<a id="orgd92aabf"></a>
-
 # Package Basics
 
 
-<a id="org567c5e6"></a>
-
 ## Search
 
-
-<a id="org61394d4"></a>
 
 ### Avy
 
@@ -179,7 +135,7 @@ Instalar y configurar use-package
 
 ```emacs-lisp
 (use-package avy
-  :defer t
+  :blackout t
   :bind
   (("C-z C-c" . avy-goto-char-timer)
    ("C-z C-l" . avy-goto-line))
@@ -191,20 +147,16 @@ Instalar y configurar use-package
 ```
 
 
-<a id="org4252a16"></a>
-
 ### CtrlF
 
 El paquete ****[ctrlf](https://github.com/radian-software/ctrlf)**** proporciona un reemplazo para 'buscar' que es más similar a las interfaces de búsqueda de texto probadas y verdaderas en la web navegadores y otros programas (piense en lo que sucede cuando escribe ctrl + F).
 
 ```emacs-lisp
 (use-package avy
-  :defer t
+  :blackout t
   :bind
 ```
 
-
-<a id="orgb5a3a6a"></a>
 
 ### ColorRG
 
@@ -214,9 +166,26 @@ El paquete ****[ctrlf](https://github.com/radian-software/ctrlf)**** proporciona
 
 ```emacs-lisp
 (use-package color-rg
+  :blackout t
   :straight (color-rg :type git
 		      :host github
 		      :repo "manateelazycat/color-rg")
   :if (executable-find "rg")
-  :bind ("C-z C-s" . color-rg-search-input))
+```
+
+
+# General Programming
+
+
+## Editing
+
+
+### Iedit
+
+[Iedit](https://github.com/victorhge/iedit),un modo menor que permite editar múltiples regiones simultáneamente en un búfer o una región.
+
+```emacs-lisp
+(use-package iedit
+  :bind ("C-z ," . iedit-mode)
+  :blackout t)
 ```
