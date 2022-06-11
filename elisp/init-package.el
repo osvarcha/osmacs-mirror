@@ -40,6 +40,15 @@
 (setq use-package-always-defer t)
 ;; -ConfigureUsePackage
 
+;; el-patch
+(use-package el-patch)
+
+;; Only needed at compile time, thanks to Jon
+;; <https://github.com/radian-software/el-patch/pull/11>.
+(eval-when-compile
+  (require 'el-patch))
+;; -el-patch
+
 ;; Blackout
 (use-package blackout
   :demand t)

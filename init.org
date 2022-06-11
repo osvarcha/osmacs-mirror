@@ -25,7 +25,10 @@ Instalar y configurar use-package
 #+include: "elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage" :lines "23-41"
 *** Blackout
 [[https://github.com/radian-software/blackout][Blackout]], una característica que elimina ciertos modos menores de la línea de modo.
-#+include: "elisp/init-package.el" src emacs-lisp :range-begin "Blackout" :range-end "-Blackout" :lines "44-46"
+#+include: "elisp/init-package.el" src emacs-lisp :range-begin "Blackout" :range-end "-Blackout" :lines "53-55"
+*** el-patch
+El paquete 'el-patch' proporciona una forma de anular la definición de an función interna de otro paquete al proporcionar una expresión s diferencial basado que luego puede validarse para garantizar que el flujo ascendente La definición no ha cambiado.
+#+include: "elisp/init-package.el" src emacs-lisp :range-begin "el-patch" :range-end "-el-patch" :lines "44-50"
 * Global Functionalities
 ** USer Information
 *Prerequisite*:Informacion basica del usuario
@@ -47,6 +50,8 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 
 *Prerequisite*: [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]]
 #+include: "elisp/init-search.el" src emacs-lisp :range-begin "ColorRg" :range-end "-ColorRG" :lines "26-32"
+** Dired
+#+include: "elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "4-36"
 * General Programming
 ** Editing
 *** Iedit

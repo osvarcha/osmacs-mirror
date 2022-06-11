@@ -66,6 +66,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-vundo)
 
+(require 'init-dired)
 ;; UI Enhancements
 
 ;; General Programming
