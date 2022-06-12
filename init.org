@@ -37,6 +37,9 @@ El paquete 'el-patch' proporciona una forma de anular la definición de an funci
 #+include: "elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :rage-end "-UTF8Coding" :lines "16-27"
 ** Bindings
 #+include: "elisp/init-global-config.el" src emacs-lisp :range-begin "DefineBindings" :rage-end "-DefiBindings" :lines "12-13"
+** Selectrum
+Selectrum is good
+#+include: "elisp/init-selectrum.el" src emacs-lisp :range-begin "SelectrumPac" :range-end "-SelectrumPac" :lines "4-49"
 * Package Basics
 ** Search
 *** Avy

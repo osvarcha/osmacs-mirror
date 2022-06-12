@@ -72,6 +72,10 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; General Programming
 (require 'init-edit)
 
+;; (require 'init-yassnippet)
+
+(require 'init-selectrum)
+
 ;; Programming
 
 ;; Web Development
