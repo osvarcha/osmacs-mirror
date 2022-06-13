@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: include
+# key: include
+# --
+#+INCLUDE: "${1:elisp/}" src ${2:language} :range-begin "${3:begin}" :range-end "${4:end}" :lines "${5:lines}"

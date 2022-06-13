@@ -55,6 +55,8 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 #+include: "elisp/init-search.el" src emacs-lisp :range-begin "ColorRg" :range-end "-ColorRG" :lines "26-32"
 ** Dired
 #+include: "elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "4-36"
+** Snippest
+#+INCLUDE: "elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "YASnippetPac" :lines "4-25"
 * General Programming
 ** Editing
 *** Iedit
