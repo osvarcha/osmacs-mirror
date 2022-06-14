@@ -71,6 +71,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-theme)
 ;; General Programming
+(require 'init-parens)
+
 (require 'init-edit)
 
 (require 'init-yasnippet)
