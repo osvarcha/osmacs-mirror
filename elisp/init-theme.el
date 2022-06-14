@@ -4,6 +4,9 @@
 
 ;; DoomThemes
 (use-package doom-themes
+  :no-require t
+  :functions (true-color-p)
+  :demand t
   :custom-face
   (cursor ((t (:background "BlanchedAlmond"))))
   :config
@@ -11,16 +14,19 @@
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-one t)
+  (load-theme 'doom-dracula t)
   (defun switch-theme ()
     "An interactive funtion to switch themes."
     (interactive)
     (disable-theme (intern (car (mapcar #'symbol-name custom-enabled-themes))))
     (call-interactively #'load-theme)))
-;; -DoomThemes
+;; ;; -DoomThemes
 
 ;; DoomModeline
 (use-package doom-modeline
+  :no-require t
+  :demand t
+  :functions (true-color-p)
   :custom
   ;; Don't compact font caches during GC. Windows Laggy Issue
   (inhibit-compacting-font-caches t)

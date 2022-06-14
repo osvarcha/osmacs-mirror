@@ -69,6 +69,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-dired)
 ;; UI Enhancements
 
+(require 'init-theme)
 ;; General Programming
 (require 'init-edit)
 
@@ -76,6 +77,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-selectrum)
 
+(require 'init-company)
 ;; Programming
 
 ;; Web Development

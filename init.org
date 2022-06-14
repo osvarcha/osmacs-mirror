@@ -57,6 +57,12 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 #+include: "elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "4-36"
 ** Snippest
 #+INCLUDE: "elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "YASnippetPac" :lines "4-25"
+** Theme
+*** Doom theme
+#+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "6-20"
+*** Doom Modeline
+#+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "23-33"
+
 * General Programming
 ** Editing
 *** Iedit
