@@ -64,6 +64,11 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 #+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "23-33"
 
 * General Programming
+** Parenthesis
+*** Smartparens
+#+INCLUDE: "elisp/init-parens.el" src emacs-lisp :range-begin "SmartParensPac" :range-end "-SmartparensPac" :lines "6-26"
+*** Math Parenthesis
+#+INCLUDE: "elisp/init-parens.el" src emacs-lisp :range-begin "MatchParens" :range-end "-MatchParens" :lines "30-69"
 ** Editing
 *** Iedit
 [[https://github.com/victorhge/iedit][Iedit]],un modo menor que permite editar múltiples regiones simultáneamente en un búfer o una región.
