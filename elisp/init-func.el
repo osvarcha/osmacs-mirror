@@ -51,6 +51,15 @@ BEGIN and END are regexps which define the line range to use."
         (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 ;; -OrgIncludeAuto
 
+;; EditConfig
+(defun edit-configs ()
+  "Opens the README.org file."
+  (interactive)
+  (find-file "~/.emacs.d/init.org"))
+
+(global-set-key (kbd "C-z e") #'edit-configs)
+;; -EditConfig
+
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-func.el ends here

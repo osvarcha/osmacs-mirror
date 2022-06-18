@@ -70,6 +70,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; UI Enhancements
 
 (require 'init-theme)
+
 ;; General Programming
 (require 'init-parens)
 
@@ -79,7 +80,11 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-selectrum)
 
+;; (require 'init-fido)
+
 (require 'init-company)
+
+(require 'init-marginalia)
 ;; Programming
 
 ;; Web Development

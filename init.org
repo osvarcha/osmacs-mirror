@@ -37,9 +37,21 @@ El paquete 'el-patch' proporciona una forma de anular la definición de an funci
 #+include: "elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :rage-end "-UTF8Coding" :lines "16-27"
 ** Bindings
 #+include: "elisp/init-global-config.el" src emacs-lisp :range-begin "DefineBindings" :rage-end "-DefiBindings" :lines "12-13"
-** Selectrum
-Selectrum is good
+** Functions
+*** EditConfig
+##+INCLUDE: "elisp/init-func.el" src emacs-lisp :range-begin "EditConfig" :range-end "-Editconfig" :lines "55-61"
+*** Org include automatic
+#+INCLUDE: "elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeauto" :lines "7-52"
+** Vundo
+#+INCLUDE: "elisp/init-vundo.el" src emacs-lisp :range-begin "Vundo" :range-end "-Vundo" :lines "4-19"
+** Selectrumx
+Selectrum is good, pero lo omiti por el momento
 #+include: "elisp/init-selectrum.el" src emacs-lisp :range-begin "SelectrumPac" :range-end "-SelectrumPac" :lines "4-49"
+** Icomplete
+Fido me gusta mas y mantengo lo minimalista
+#+INCLUDE: "elisp/init-fido.el" src emacs-lisp :range-begin "Fido" :range-end "-Fido" :lines "4-5"
+** Marginalia
+#+INCLUDE: "elisp/init-marginalia.el" src emacs-lisp :range-begin "Marginalia" :range-end "-Marginalia" :lines "4-17"
 * Package Basics
 ** Search
 *** Avy
@@ -62,7 +74,10 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 #+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "6-20"
 *** Doom Modeline
 #+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "23-33"
-
+* UX
+** Theme
+*** DoomTheme
+*** DoomModeline
 * General Programming
 ** Parenthesis
 *** Smartparens
