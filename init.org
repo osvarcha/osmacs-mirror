@@ -88,3 +88,6 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 *** Iedit
 [[https://github.com/victorhge/iedit][Iedit]],un modo menor que permite editar múltiples regiones simultáneamente en un búfer o una región.
 #+include: "elisp/init-edit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "7-10"
+** Company
+#+INCLUDE: "elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "7-44"
+#+INCLUDE: "elisp/init-company.el" src emacs-lisp :range-begin "CompanyBoxPac" :range-end "-CompanyBoxPac" :lines "47-252"
