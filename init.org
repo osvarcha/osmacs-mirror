@@ -18,7 +18,7 @@ Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a fea
 * Package Manager
 Cuando comence a usar emacs quise extender las funcionalidades para ello utilice los repositorios de [[https://melpa.org/][MELPA]] con ayuda del paquete [[https://github.com/jwiegley/use-package][use-package]] pero luego descubri [[https://github.com/radian-software/straight.el][straight.el]], un gestor de paquetes puramente funcional para la nueva generacion de hackers de emacs, me gusto mas porque no descargaba el paquete en si sino clonaba el repositorio y me permitia hacer modificaciones directas al repositorio descargado.
 
-Para añadirlo Straight.el
+Para añadirlo Straight.elc
 #+include: "elisp/init-package.el" src emacs-lisp :range-begin "BootstrapStraight" :range-end "-BootstrapStraight" :lines "4-20"
 ** Use-package
 Instalar y configurar use-package
@@ -69,11 +69,6 @@ El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona 
 #+include: "elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "4-36"
 ** Snippest
 #+INCLUDE: "elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "YASnippetPac" :lines "4-25"
-** Theme
-*** Doom theme
-#+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "6-20"
-*** Doom Modeline
-#+INCLUDE: "elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "23-33"
 * UX
 ** Theme
 *** DoomTheme

@@ -1,0 +1,247 @@
+# -*- org-insert-tilde-language: emacs-lisp; -*-
+#+TITLE: Emacs Configuration
+#+OPTIONS: toc:3
+
+* Premiliminars
+* Sobre este repositorio
+Emacs es mi editor de texto preferido y este repositorio esta toda su configuracion. Cabe resaltar que este repositorio coge muchas lineas de codigo de muchas configuraciones externas que acomode a mi manejo lo cual agradezco a todas esas personas que hacen esto posible a los Hacker de emacs.
+* Constants and preliminary configurations
+These are some general configurations that I’ve slowly accumulated.
+#+begin_src emacs-lisp
+  (setq user-full-name "Oscar (Osvarcha) Vargas"
+	user-mail-address "osvarcha@hotmail.com")
+
+  (electric-pair-mode t)   ;; Parenthesis
+  (global-hl-line-mode)
+  (setq display-line-numbers 'relative)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+  (display-battery-mode 1)
+ #+end_src
+**  Shortkeys
+ #+begin_src emacs-lisp
+   ;; UnbingKey
+   (unbind-key "C-z") ;; Suspend-frame
+
+   ;; Keys
+   (global-set-key (kbd "C-z m b")  'windmove-left)
+   (global-set-key (kbd "C-z m f") 'windmove-right)
+   (global-set-key (kbd "C-z m p")    'windmove-up)
+   (global-set-key (kbd "C-z m n")  'windmove-down)
+   (global-set-key (kbd "C-c <left>")  'windmove-left)
+   (global-set-key (kbd "C-c <right>") 'windmove-right)
+   (global-set-key (kbd "C-c <up>")    'windmove-up)
+   (global-set-key (kbd "C-c <down>")  'windmove-down)
+ #+end_src
+
+ #+RESULTS:
+ : windmove-down
+
+* Package Management
+Cuando comence a usar emacs quise extender las funcionalidades para ello utilice los repositorios de [[https://melpa.org/][MELPA]] con ayuda del paquete [[https://github.com/jwiegley/use-package][use-package]] pero luego descubri [[https://github.com/radian-software/straight.el][straight.el]], un gestor de paquetes puramente funcional para la nueva generacion de hackers de emacs, me gusto mas porque no descargaba el paquete en si sino clonaba el repositorio y me permitia hacer modificaciones directas al repositorio descargado.
+
+Para añadirlo Straight.el
+#+begin_src emacs-lisp
+;; BootstrapStraight
+(setq straight-check-for-modifications nil)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+      (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+        'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; Load the helper package for commands like `straight-x-clean-unused-repos'
+(require 'straight-x)
+;; -BootstrapStraight
+#+end_src
+
+** Use-Package
+Instalar y configurar use-package
+#+begin_src emacs-lisp
+  ;; ConfigureUsePackage
+  ;; Use straight.el for use-package expressions
+  (straight-use-package 'use-package)
+  ;; Install use-package if not installed
+
+  ;; Configure use-package to use straight.el by default
+  (use-package straight
+    :custom (straight-use-package-by-default t))
+
+  ;; (eval-and-compile
+  ;;   (setq use-package-always-ensure t)
+  ;;   (setq use-package-expand-minimally t)
+  ;;   (setq use-package-compute-statistics t)
+  ;;   (setq use-package-enable-imenu-support t))
+
+  ;; (eval-when-compile
+  ;;   (require 'use-package)
+  ;;   (require 'bind-key))
+  (setq use-package-always-defer t)
+  ;; -ConfigureUsePackage
+#+end_src
+
+*** Blackout
+[[https://github.com/radian-software/blackout][Blackout]], una característica que elimina ciertos modos menores de la línea de modo.
+#+begin_src emacs-lisp
+  ;; Blackout
+  (use-package blackout
+    :demand t)
+  ;; -Blackout
+#+end_src
+
+*** el-patch
+El paquete 'el-patch' proporciona una forma de anular la definición de an función interna de otro paquete al proporcionar una expresión s diferencial basado que luego puede validarse para garantizar que el flujo ascendente La definición no ha cambiado.
+#+begin_src emacs-lisp
+  ;; el-patch
+  (use-package el-patch)
+
+  ;; Only needed at compile time, thanks to Jon
+  ;; <https://github.com/radian-software/el-patch/pull/11>.
+  (eval-when-compile
+    (require 'el-patch))
+  ;; -el-patch
+#+end_src
+
+* Package Basic
+
+** Search
+
+*** Avy
+[[https://github.com/abo-abo/avy][Avy]], una de las mejores herramientas para moverte en el texto.
+#+begin_src emacs-lisp
+  ;; Avy
+(use-package avy
+  :blackout t
+  :bind
+  (("C-z C-c" . avy-goto-char-timer)
+   ("C-z C-l" . avy-goto-line))
+  :custom
+  (avy-timeout-seconds 0.3)
+  (avy-style 'pre)
+  :custom-face
+  (avy-lead-face ((t (:background "#51afef" :foreground "#870000" :weight bold)))));
+;; -Avy
+#+end_src
+
+*** CtrF
+El paquete **[[https://github.com/radian-software/ctrlf][ctrlf]]**  proporciona un reemplazo para 'buscar' que es más similar a las interfaces de búsqueda de texto probadas y verdaderas en la web navegadores y otros programas (piense en lo que sucede cuando escribe ctrl + F).
+#+begin_src emacs-lisp
+  ;; CtrlF
+(use-package ctrlf
+  :init
+  (ctrlf-mode +1))
+;; CtrlF
+
+#+end_src
+*** ColorRG
+Color rg]], una herramienta de búsqueda y refactorización basada en ripgrep que se utiliza para buscar texto.
+
+*Prerequisite*: [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]]
+#+begin_src emacs-lisp
+;; ColorRG
+(use-package color-rg
+  :blackout t
+  :straight (color-rg :type git
+                      :host github
+                      :repo "manateelazycat/color-rg")
+  :if (executable-find "rg")
+  :bind ("C-z C-s" . color-rg-search-input))
+;; -ColorRG
+#+end_src
+** Dired
+
+#+begin_src emacs-lisp
+
+;; DiredPackage
+(use-package dired
+  :ensure nil
+  :straight nil
+  :bind
+  (("C-x C-j" . dired-jump))
+  :custom
+  ;; Always delete and copy recursively
+  (dired-listing-switches "-lah")
+  (dired-recursive-deletes 'always)
+  (dired-recursive-copies 'always)
+  ;; Auto refresh Dired, but be quiet about it
+  (global-auto-revert-non-file-buffers t)
+  (auto-revert-verbose nil)
+  ;; Quickly copy/move file in Dired
+  (dired-dwim-target t)
+  ;; Move files to trash when deleting
+  (delete-by-moving-to-trash t)
+  ;; Load the newest version of a file
+  (load-prefer-newer t)
+  ;; Detect external file changes and auto refresh file
+  (auto-revert-use-notify nil)
+  (auto-revert-interval 3) ; Auto revert every 3 sec
+  :config
+  ;; Enable global auto-revert
+  (global-auto-revert-mode t)
+  ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
+  (put 'dired-find-alternate-file 'disabled nil)
+  :hook
+  (dired-mode . (lambda ()
+                  (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
+                  (local-set-key (kbd "RET") #'dired-find-alternate-file)
+                  (local-set-key (kbd "^")
+                                 (lambda () (interactive) (find-alternate-file "..")))))
+  )
+;; -DiredPackage
+#+end_src
+** Edit
+*** Iedit
+[[https://github.com/victorhge/iedit][Iedit]],un modo menor que permite editar múltiples regiones simultáneamente en un búfer o una región.
+#+begin_src emacs-lisp
+  ;; IEditPac
+  (use-package iedit
+    :bind ("C-z ," . iedit-mode)
+    :blackout t)
+  ;; -IEditPac
+#+end_src
+* UI
+** Theme
+Doom Theme and ModeLine
+#+begin_src emacs-lisp
+  ;; DoomThemes
+(use-package doom-themes
+  :no-require t
+  :functions (true-color-p)
+  :demand t
+  :custom-face
+  (cursor ((t (:background "BlanchedAlmond"))))
+  :config
+  ;; flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
+  (load-theme 'doom-acario-dark t)
+  (defun switch-theme ()
+    "An interactive funtion to switch themes."
+    (interactive)
+    (disable-theme (intern (car (mapcar #'symbol-name custom-enabled-themes))))
+    (call-interactively #'load-theme)))
+;; ;; -DoomThemes
+
+;; DoomModeline
+(use-package doom-modeline
+  :no-require t
+  :demand t
+  :functions (true-color-p)
+  :custom
+  ;; Don't compact font caches during GC. Windows Laggy Issue
+  (inhibit-compacting-font-caches t)
+  (doom-modeline-minor-modes t)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-color-icon t)
+  (doom-modeline-height 15)
+  :config
+  (doom-modeline-mode))
+;; -DoomModeline
+#+end_src

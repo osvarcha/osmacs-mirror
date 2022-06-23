@@ -1,107 +1,125 @@
 ;;; init.el --- -*- lexical-binding: t -*-
+;;
+;; Emacs configuration for Osvarcha
+;;
+;; Commentary:
+;;
+;; This is configuration
+;;
+;;; CODE:
 
-;; BetterGC
-(defvar better-gc-cons-threshold 134217728 ; 128mb
-  "The default value to use for `gc-cons-threshold'.
-If you experience freezing, decrease this.  If you experience stuttering, increase this.")
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file :noerror)
 
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold better-gc-cons-threshold)
-            (setq file-name-handler-alist file-name-handler-alist-original)
-            (makunbound 'file-name-handler-alist-original)))
-;; -BetterGC
+;; During loading of init file, disable checking filenames against the list of
+;; filetype handlers. This speeds up startup, as otherwise this list would be
+;; checked for every loaded .el and .elc file.
+(let ((file-name-handler-alist nil))
+  ;;
+  (org-babel-load-file (concat user-emacs-directory "README.org")))
 
-;; AutoGC
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (if (boundp 'after-focus-change-function)
-                (add-function :after after-focus-change-function
-                              (lambda ()
-                                (unless (frame-focus-state)
-                                  (garbage-collect))))
-              (add-hook 'after-focus-change-function 'garbage-collect))
-            (defun gc-minibuffer-setup-hook ()
-              (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
+;; ;; BetterGC
+;; (defvar better-gc-cons-threshold 134217728 ; 128mb
+;;   "The default value to use for `gc-cons-threshold'.
+;; If you experience freezing, decrease this.  If you experience stuttering, increase this.")
 
-            (defun gc-minibuffer-exit-hook ()
-              (garbage-collect)
-              (setq gc-cons-threshold better-gc-cons-threshold))
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;;             (setq gc-cons-threshold better-gc-cons-threshold)
+;;             (setq file-name-handler-alist file-name-handler-alist-original)
+;;             (makunbound 'file-name-handler-alist-original)))
+;; ;; -BetterGC
 
-            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
-            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
-;; -AutoGC
+;; ;; AutoGC
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;;             (if (boundp 'after-focus-change-function)
+;;                 (add-function :after after-focus-change-function
+;;                               (lambda ()
+;;                                 (unless (frame-focus-state)
+;;                                   (garbage-collect))))
+;;               (add-hook 'after-focus-change-function 'garbage-collect))
+;;             (defun gc-minibuffer-setup-hook ()
+;;               (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
 
-;; LoadPath
-(defun update-to-load-path (folder)
-  "Update FOLDER and its subdirectories to `load-path'."
-  (let ((base folder))
-    (unless (member base load-path)
-      (add-to-list 'load-path base))
-    (dolist (f (directory-files base))
-      (let ((name (concat base "/" f)))
-        (when (and (file-directory-p name)
-                   (not (equal f ".."))
-                   (not (equal f ".")))
-          (unless (member base load-path)
-            (add-to-list 'load-path name)))))))
+;;             (defun gc-minibuffer-exit-hook ()
+;;               (garbage-collect)
+;;               (setq gc-cons-threshold better-gc-cons-threshold))
 
-(update-to-load-path (expand-file-name "elisp" user-emacs-directory))
-;; -LoadPath
+;;             (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+;;             (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
+;; ;; -AutoGC
 
-;; Constants
-(require 'init-const)
+;; ;; LoadPath
+;; (defun update-to-load-path (folder)
+;;   "Update FOLDER and its subdirectories to `load-path'."
+;;   (let ((base folder))
+;;     (unless (member base load-path)
+;;       (add-to-list 'load-path base))
+;;     (dolist (f (directory-files base))
+;;       (let ((name (concat base "/" f)))
+;;         (when (and (file-directory-p name)
+;;                    (not (equal f ".."))
+;;                    (not (equal f ".")))
+;;           (unless (member base load-path)
+;;             (add-to-list 'load-path name)))))))
 
-;; Packages
+;; (update-to-load-path (expand-file-name "elisp" user-emacs-directory))
+;; ;; -LoadPath
 
-;; Package Management
-(require 'init-package)
+;; ;; Constants
+;; (require 'init-const)
 
-;; Global Functionalities
-(require 'init-global-config)
+;; ;; Packages
 
-(require 'init-func)
+;; ;; Package Management
+;; (require 'init-package)
 
-(require 'init-search)
+;; ;; Global Functionalities
+;; (require 'init-global-config)
 
-(require 'init-vundo)
+;; (require 'init-func)
 
-(require 'init-dired)
-;; UI Enhancements
+;; (require 'init-search)
 
-(require 'init-theme)
+;; (require 'init-vundo)
 
-;; General Programming
-(require 'init-parens)
+;; (require 'init-dired)
+;; ;; UI Enhancements
 
-(require 'init-edit)
+;; (require 'init-theme)
 
-(require 'init-yasnippet)
+;; ;; General Programming
+;; (require 'init-parens)
 
-(require 'init-selectrum)
+;; (require 'init-edit)
 
-;; (require 'init-fido)
+;; (require 'init-yasnippet)
 
-(require 'init-company)
+;; (require 'init-selectrum)
 
-(require 'init-marginalia)
-;; Programming
+;; ;; (require 'init-fido)
 
-;; Web Development
+;; (require 'init-company)
 
-;; Office
-(require 'init-org)
+;; (require 'init-marginalia)
+;; ;; Programming
 
-;; Internet
+;; ;; Web Development
 
-;; Miscellaneous
+;; ;; Office
+;; (require 'init-org)
 
-;; InitPrivate
-;; Load init-private.el if it exists
-(when (file-exists-p (expand-file-name "init-private.el" user-emacs-directory))
-  (load-file (expand-file-name "init-private.el" user-emacs-directory)))
-;; -InitPrivate
+;; ;; Internet
+
+;; ;; Miscellaneous
+
+;; ;; InitPrivate
+;; ;; Load init-private.el if it exists
+;; (when (file-exists-p (expand-file-name "init-private.el" user-emacs-directory))
+;;   (load-file (expand-file-name "init-private.el" user-emacs-directory)))
+;; ;; -InitPrivate
 
 (provide 'init)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+(put 'narrow-to-region 'disabled nil)
